@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AgendaService {
+public class AgendaService extends Persona {
 
 	private Map<String, Persona> bbdd = new LinkedHashMap<>();
 	
@@ -25,6 +25,13 @@ public class AgendaService {
 	
 	public Persona recupera (String id) {
 		return bbdd.get(id);
+	}
+	
+	public String devolverTelefono(String id) {
+		Persona datos = bbdd.get(id);
+		String numero = datos.getTelefon();
+		return numero;
+		
 	}
 	
 	public int nombreContactes() {

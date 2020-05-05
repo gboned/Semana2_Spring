@@ -1,7 +1,5 @@
 package org.formacio.repositori;
 
-
-
 public class Persona {
 
 	private String clau;
@@ -40,5 +38,5 @@ public class Persona {
 	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
-
+	
 }

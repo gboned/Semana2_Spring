@@ -34,7 +34,19 @@ public class AgendaService extends Persona {
 		
 	}
 	
+	public Persona devolverPersona(String id) {
+		Persona datos = bbdd.get(id);
+		return datos;
+	}
+	
+	public String devolverNombre(String id) {
+		Persona datos = bbdd.get(id);
+		String nombre = datos.getNom();
+		return nombre;
+	}
+	
 	public int nombreContactes() {
 		return bbdd.size();
 	}
+	
 }

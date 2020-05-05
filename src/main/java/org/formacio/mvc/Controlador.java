@@ -5,6 +5,7 @@ import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,7 +25,14 @@ public class Controlador extends AgendaService {
 	public String telefonoContactos(@RequestParam String id) {
 		return agendaService.devolverTelefono(id);
 	}
-		
+	@RequestMapping(
+			value = "/contacte/{id}", 
+			method = RequestMethod.GET, 
+			produces = "application/json")
+	@ResponseBody
+	public Persona personaPorId() {
+		return persona;
+	}
 		
 }
 

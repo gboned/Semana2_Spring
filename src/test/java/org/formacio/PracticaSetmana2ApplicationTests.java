@@ -23,7 +23,7 @@ public class PracticaSetmana2ApplicationTests {
 	private MockMvc mockMvc;
 
 	/**
-	 * Creau un controlador al package org.formacio.mvc que respongui a les peticions que s'especifiquen
+	 * Creau un controlador al pac   kage org.formacio.mvc que respongui a les peticions que s'especifiquen
 	 * als seguents tests. El controlador ha de fer us de AgendaService 
 	 */
 	

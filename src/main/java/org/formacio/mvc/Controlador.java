@@ -1,6 +1,7 @@
 package org.formacio.mvc;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
 import com.google.gson.Gson;
 
 @Controller
@@ -32,11 +34,14 @@ public class Controlador extends AgendaService {
 	public int numeroContactos() {
 		return agendaService.nombreContactes();
 	}
+	
 	@RequestMapping(path = "/telefon")
+	
 	@ResponseBody
 	public String telefonoContactos(@RequestParam String id) {
 		return agendaService.devolverTelefono(id);
 	}
+	
 	@RequestMapping(
 			value = "/contacte/{id}", 
 			method = RequestMethod.GET, 
@@ -90,10 +95,12 @@ public class Controlador extends AgendaService {
 		JsonNode tree = objectMapper.readTree(parsedPersona);
 		jsonAsXml = mapper.writer().withRootName("persona").writeValueAsString(tree);
 	}
+		
 		return jsonAsXml;
 	}
 	
 	@PostMapping(value = "/afegir")
+	
 	@ResponseBody
 	public void nuevaPersona(@RequestParam Map<Object, String> persona)  {
 		agendaService.inserta(persona.get("id"), persona.get("nom"), persona.get("telefon"));

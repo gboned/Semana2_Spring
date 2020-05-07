@@ -3,7 +3,11 @@ package org.formacio.mvc;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
+
+
 import org.formacio.repositori.AgendaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,12 +65,17 @@ public class Controlador extends AgendaService {
 			produces = "application/xml")
 	
 	@ResponseBody
-	public String personaPorIdXML(@PathVariable("id") String id) throws JsonProcessingException, IOException {
+	public String personaPorIdXML(@PathVariable("id") String id, HttpServletResponse response) throws JsonProcessingException, IOException {
 		String clau = id;
 		String nom = agendaService.devolverNombre(id);
 		String tel = agendaService.devolverTelefono(id);
 		
+		String jsonAsXml = null;
 		HashMap<String, String> persona = new HashMap<String, String>();
+		
+		if (nom == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		} else {
 		
 		persona.put("clau", clau);
 		persona.put("nom", nom);
@@ -78,10 +87,11 @@ public class Controlador extends AgendaService {
 		ObjectMapper objectMapper = new ObjectMapper();
 		XmlMapper mapper = new XmlMapper();
 		JsonNode tree = objectMapper.readTree(parsedPersona);
-		String jsonAsXml = mapper.writer().withRootName("persona").writeValueAsString(tree);
-		
+		jsonAsXml = mapper.writer().withRootName("persona").writeValueAsString(tree);
+	}
 		return jsonAsXml;
 	}
+	
 }
-
+	
 

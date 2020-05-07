@@ -27,21 +27,36 @@ import com.google.gson.Gson;
 
 @Controller
 public class Controlador extends AgendaService {
+	/*
+	 * Anotación para instancias clase AgendaService.
+	 * */
 	@Autowired
 	private AgendaService agendaService;
+	/*
+	 * Creo método para que al dirigirse a localhost:8080/nombre
+	 * de cuántos contactos hay en la base de datos, llamando a un
+	 * método ya existente en la clase AgendaService.
+	 * */
 	@RequestMapping(path = "/nombre")
+
 	@ResponseBody
 	public int numeroContactos() {
 		return agendaService.nombreContactes();
 	}
-	
+	/*
+	 * Creo método para que según la id del contacto, se
+	 * devuelva su número de teléfono, llamando a un método
+	 * creado nuevo en la clase AgendaService.
+	 * */
 	@RequestMapping(path = "/telefon")
 	
 	@ResponseBody
 	public String telefonoContactos(@RequestParam String id) {
 		return agendaService.devolverTelefono(id);
 	}
-	
+	/* Creo método que según el id del contacto, devuelve
+	 * toda su información.
+	 * */
 	@RequestMapping(
 			value = "/contacte/{id}", 
 			method = RequestMethod.GET, 
@@ -64,7 +79,8 @@ public class Controlador extends AgendaService {
 		
 		return parsedPersona;
 	}
-	
+	/* Lo mismo que en anterior método, pero esta vez devuelve un XML.
+	 * */
 	@RequestMapping(
 			value = "/contacte/{id}",
 			method = RequestMethod.GET,
@@ -98,7 +114,8 @@ public class Controlador extends AgendaService {
 		
 		return jsonAsXml;
 	}
-	
+	/* Creado método para añadir nuevos contactos.
+	 * */
 	@PostMapping(value = "/afegir")
 	
 	@ResponseBody

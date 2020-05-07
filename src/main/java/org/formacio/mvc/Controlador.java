@@ -105,5 +105,6 @@ public class Controlador extends AgendaService {
 	public void nuevaPersona(@RequestParam Map<Object, String> persona)  {
 		agendaService.inserta(persona.get("id"), persona.get("nom"), persona.get("telefon"));
 	}
+
 }  
 

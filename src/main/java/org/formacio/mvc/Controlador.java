@@ -2,15 +2,16 @@ package org.formacio.mvc;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
-
 
 import org.formacio.repositori.AgendaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -92,6 +93,10 @@ public class Controlador extends AgendaService {
 		return jsonAsXml;
 	}
 	
-}
-	
+	@PostMapping(value = "/afegir")
+	@ResponseBody
+	public void nuevaPersona(@RequestParam Map<Object, String> persona)  {
+		agendaService.inserta(persona.get("id"), persona.get("nom"), persona.get("telefon"));
+	}
+}  
 

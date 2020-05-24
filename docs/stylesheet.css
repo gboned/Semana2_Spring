@@ -12,11 +12,11 @@
  */
 
 body {
-    background-color:#ffffff;
+    background-color:#cdcdcd;
     color:#353833;
     font-family:'DejaVu Sans', Arial, Helvetica, sans-serif;
     font-size:14px;
-    margin:0;
+    margin:2%;
     padding:0;
     height:100%;
     width:100%;
@@ -154,7 +154,7 @@ sup {
     background-color:#ffffff;
 }
 .topNav {
-    background-color:#4D7A97;
+    background-color:#5badff;
     color:#FFFFFF;
     float:left;
     padding:0;
@@ -167,7 +167,7 @@ sup {
 }
 .bottomNav {
     margin-top:10px;
-    background-color:#4D7A97;
+    background-color:#5badff;
     color:#FFFFFF;
     float:left;
     padding:0;
@@ -232,8 +232,8 @@ ul.subNavList li {
     text-transform:uppercase;
 }
 .navBarCell1Rev {
-    background-color:#F8981D;
-    color:#253441;
+    background-color:#4242ff;
+    color:#ffffff;
     margin: auto 5px;
 }
 .skipNav {
@@ -476,7 +476,7 @@ table tr td dl, table tr td dl dt, table tr td dl dd {
     padding-bottom:7px;
     display:inline-block;
     float:left;
-    background-color:#F8981D;
+    background-color:#8f8f8f;
     border: none;
     height:16px;
 }
